@@ -14,9 +14,10 @@ from selenium.webdriver.common.keys import Keys
 
 
 #open Chrome
-driver = webdriver.Chrome("C:/Users/KONRADC/.spyder/chromedriver.exe")
+driver = webdriver.Chrome("C:/Users/CMKONRAD/.spyder/chromedriver.exe")
 
-## To get rid of pop-up where I have to click "ok", Diego says to replace
+## Potential work around to get rid of pop-up where you have to click "ok"
+# replace:
 #driver = webdriver.Chrome()
 ## with the following:
 #options = webdriver.chrome.options.Options()
@@ -28,7 +29,6 @@ driver = webdriver.Chrome("C:/Users/KONRADC/.spyder/chromedriver.exe")
 driver.set_window_size(1300, 800)
 
 
-
 magicNums = []       # numbers for URL
 foundMMSIs = [] 
 matchlessMMSIs = [] 
@@ -36,10 +36,11 @@ shiplist = []         # ships to search
 
 
 import os
-os.chdir('E:/ESI_project/MakeCleanVesselList/ESI2017/pythonFilesITU/')  # set directory
+os.chdir('E:/pythonFilesITU/')  # set directory
 
-import csv
-with open('MMSIsToSearch.csv', 'rb') as f:
+# read in csv file of MMSIs to search. Should be made up of one column of MMSIs.
+import csv                                        
+with open('MMSIsToSearch.csv', 'rb') as f:  
     reader = csv.reader(f)
     for row in reader:
         shiplist.append(row)
